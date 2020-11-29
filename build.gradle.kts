@@ -11,13 +11,12 @@ version = "1.0-SNAPSHOT"
 repositories {
   jcenter()
   maven("https://jitpack.io")
-  maven("https://dl.bintray.com/egor-bogomolov/astminer")
 }
 
 dependencies {
   testImplementation(kotlin("test-junit"))
-  implementation("com.github.breandan:kotlingrad:0.3.9")
-  implementation("com.github.breandan:kaliningraph:0.1.3")
+  implementation("com.github.breandan:kotlingrad:0.4.0")
+  implementation("com.github.breandan:kaliningraph:0.1.4")
 }
 
 application {

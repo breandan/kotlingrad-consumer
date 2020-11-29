@@ -2,7 +2,6 @@ import edu.umontreal.kotlingrad.api.*
 
 val x by DReal.Var()
 val y by DReal.Var()
-val z by DReal.Var()
 
 @Suppress("NonAsciiCharacters", "LocalVariableName")
 fun main() {
@@ -16,10 +15,13 @@ fun main() {
   val values = arrayOf(x to 0, y to 1)
 
   println("z(x, y) \t= $z\n" +
-    "z(${values.map { it.second }.joinToString()}) \t\t= ${z(*values)}\n" +
+    "z(${values.map { it.second }.joinToString()}) \t= ${z(*values)}\n" +
     "∂z/∂x \t\t= $`∂z∕∂x` \n\t\t= " + `∂z∕∂x`(*values) + "\n" +
     "∂z/∂y \t\t= $`∂z∕∂y` \n\t\t= " + `∂z∕∂y`(*values) + "\n" +
     "∂²z/∂x² \t= $`∂z∕∂y` \n\t\t= " + `∂²z∕∂x²`(*values) + "\n" +
     "∂²z/∂x∂y \t= $`∂²z∕∂x∂y` \n\t\t= " + `∂²z∕∂x∂y`(*values) + "\n" +
     "∇z \t\t= $`∇z` \n\t\t= [${`∇z`[x]!!(*values)}, ${`∇z`[y]!!(*values)}]ᵀ")
+
+  val t = (1 + x * 2 - 3 + y + z / y).d(y).d(x) + z / y * 3 - 2 + sin(x)
+  println("t(x, y) \t= $t")
 }
