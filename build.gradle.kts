@@ -1,9 +1,8 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.api.JavaVersion.VERSION_15
 
 plugins {
-  application
-  kotlin("jvm") version "1.6.20-dev-1357"
+    application
+    kotlin("jvm") version "1.6.20-dev-1357"
 }
 
 group = "me.breandan"
@@ -16,25 +15,19 @@ java.toolchain {
 }
 
 repositories {
-  mavenCentral()
-  maven("https://jitpack.io")
-  maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+    mavenCentral()
+    maven("https://jitpack.io")
+    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
 }
 
 dependencies {
-  testImplementation(kotlin("test-junit"))
-  implementation("ai.hypergraph:kotlingrad:0.4.6")
-  implementation("ai.hypergraph:kaliningraph:0.1.8")
+    implementation("ai.hypergraph:kotlingrad:0.4.6")
 }
 
 application {
-  mainClassName = "TestKt"
+    mainClass.set("TestKt")
 }
 
-tasks.test {
-  useJUnit()
-}
-
-tasks.withType<KotlinCompile> {
+tasks.compileKotlin {
   kotlinOptions.jvmTarget = VERSION_15.toString()
 }
