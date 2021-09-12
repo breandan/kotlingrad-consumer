@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.JavaVersion.VERSION_15
 
 plugins {
   application
@@ -7,6 +8,12 @@ plugins {
 
 group = "me.breandan"
 version = "1.0-SNAPSHOT"
+
+java.toolchain {
+  languageVersion.set(JavaLanguageVersion.of(15))
+  vendor.set(JvmVendorSpec.ADOPTOPENJDK)
+  implementation.set(JvmImplementation.J9)
+}
 
 repositories {
   mavenCentral()
@@ -29,5 +36,5 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = "1.8"
+  kotlinOptions.jvmTarget = VERSION_15.toString()
 }
