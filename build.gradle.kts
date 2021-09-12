@@ -2,25 +2,26 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   application
-  kotlin("jvm") version "1.4.20"
+  kotlin("jvm") version "1.6.20-dev-1357"
 }
 
 group = "me.breandan"
 version = "1.0-SNAPSHOT"
 
 repositories {
-  jcenter()
+  mavenCentral()
   maven("https://jitpack.io")
+  maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
 }
 
 dependencies {
   testImplementation(kotlin("test-junit"))
-  implementation("com.github.breandan:kotlingrad:0.4.0")
-  implementation("com.github.breandan:kaliningraph:0.1.4")
+  implementation("ai.hypergraph:kotlingrad:0.4.6")
+  implementation("ai.hypergraph:kaliningraph:0.1.8")
 }
 
 application {
-    mainClassName = "TestKt"
+  mainClassName = "TestKt"
 }
 
 tasks.test {

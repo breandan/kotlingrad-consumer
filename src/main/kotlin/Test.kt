@@ -1,4 +1,4 @@
-import edu.umontreal.kotlingrad.api.*
+import ai.hypergraph.kotlingrad.api.*
 
 val x by DReal.Var()
 val y by DReal.Var()
