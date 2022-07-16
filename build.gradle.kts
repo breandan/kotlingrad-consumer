@@ -2,7 +2,7 @@ import org.gradle.api.JavaVersion.VERSION_15
 
 plugins {
     application
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.7.10"
 }
 
 group = "me.breandan"
